@@ -1,0 +1,15 @@
+name: Submit to Itch.io
+
+on: [push]
+
+jobs:
+  push-to-itchio:
+    runs-on: unbuntu-latest
+    steps:
+    - uses: manleydev/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: html5
+        ITCH_GAME: ${{ secrets.BUTLER_GAMEID }}
+        ITCH_USER: ${{ secrets.BUTLER_USERNAME }}
+        PACKAGE: build
